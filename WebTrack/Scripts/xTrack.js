@@ -40,6 +40,6 @@ CustomDropDown.prototype.Add = function(item) {
     this.CustomDropDownItems.push(item);
 };
 
-CustomDropDown.prototype.Arrays = function() {
+CustomDropDown.prototype.Draw = function() {
     
 }

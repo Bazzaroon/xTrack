@@ -4,7 +4,7 @@
         <meta charset="utf-8" />
         <meta name="viewport" content="width=device-width" />
         <title>@ViewBag.Title</title>
-    
+        <link rel="icon" href="/Images/favicon.png"/>
 
         <link href="~/Content/Site.css" rel="stylesheet" />
         <link href="~/Content/bootstrap.css" rel="stylesheet" />
@@ -12,13 +12,14 @@
 
         <script src="~/Scripts/jquery.1.12.4.js"></script>
         <script src="~/Scripts/bootstrap.js"></script>
+        <script src="~/Scripts/xTrack.js"></script>
 
     </head>
     <body>
         <nav class="navbar navbar-inverse">
             <div class="container-fluid">
                 <div class="navbar-header">
-                    <a class="navbar-brand" href="#" style='color:white'>xTrack</a>
+                    <a class="navbar-brand" href="#" style='color:white'>xTrackt</a>
                 </div>
                 <ul class="nav navbar-nav">
                     <li class="active"><a href="#">Home</a></li>
@@ -53,6 +54,6 @@
     });
     
     function DoSearch(key) {
-        alert(key);
+        var ss = new Search(key);
     }
 </script>

@@ -21,10 +21,10 @@
                 <div class="navbar-header">
                     <a class="navbar-brand" href="#" style='color:white'>xTrackt</a>
                 </div>
-                <ul class="nav navbar-nav">
+                @*<ul class="nav navbar-nav">
                     <li class="active"><a href="#">Home</a></li>
-                </ul>
-                <div><input class='searchbox' type='text' /></div>
+                </ul>*@
+                <div id="searchbox-container"><input class='searchbox' type='text' /></div>
                 <ul class="nav navbar-nav navbar-right">
                     <li><a href="#"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
                     <li><a href="#"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
@@ -39,25 +39,5 @@
 </html>
 
 <script>
-    $(document).ready(function() {
-        $('.mainpanel').css({ height: $(window).height() - 150 + 'px' });
 
-        $('.searchbox').on('keydown', function(e) {
-            if (e.keyCode == 13) {
-                DoSearch($(this).val());
-            }
-        });
-
-        $(window).on('resize', function() {
-            $('.mainpanel').css({ height: $(window).height() - 150 + 'px' });
-        });
-
-        var ddItem1 = new CustomDropDownItem('Images/')
-        var DD = new CustomDropDown(100)
-
-    });
-    
-    function DoSearch(key) {
-        var ss = new Search(key);
-    }
 </script>

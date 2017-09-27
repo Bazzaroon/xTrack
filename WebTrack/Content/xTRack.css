@@ -20,3 +20,24 @@
     background-position: right 5px center;
     background-repeat: no-repeat;
 }
+
+/*  CustomDropDown Styles  */
+.menu-container {
+    border: 1px solid #00ced1;
+    border-radius: 5px;
+    display: inline;
+    position: absolute;
+    min-width: 50px;
+    min-height: 30px;
+    background-color: black;
+}
+.menu-item {
+    margin: 3px 5px 2px 8px;
+    border: 1px solid black;
+    cursor: pointer;
+    border-radius: 5px;
+}
+.menu-item:hover {
+    border: 1px solid red;
+    border-radius: 5px;
+}

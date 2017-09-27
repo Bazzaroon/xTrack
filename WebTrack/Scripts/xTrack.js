@@ -102,7 +102,27 @@ CustomDropDown.prototype.DrawMenu = function (e) {
     });
 };
 
-// Home page scripting //
+// Login Dialog ----------------------------------------------------------------------------------------------------------------------------------------//
+
+function Login(emailaddress, password) {
+
+    this.EmailAddress = emailaddress;
+    this.Password = password;
+
+    var oData = { user: emailaddress, pwd: password };
+    var URL = location.href + 'XData/GetUserData/';
+    $.ajax({
+        url: URL,
+        async: false,
+        type: 'post',
+        data: oData,
+        success: function(data) {
+            var record = data;
+        }
+    });
+}
+
+// Home page scripting ---------------------------------------------------------------------------------------------------------------------------------//
 $(document).ready(function () {
     $('.mainpanel').css({ height: $(window).height() - 150 + 'px' });
 

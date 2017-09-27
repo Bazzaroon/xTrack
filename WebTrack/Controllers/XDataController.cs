@@ -4,6 +4,8 @@ using System.IO;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using Newtonsoft.Json;
+
 
 namespace WebTrack.Controllers
 {
@@ -14,7 +16,7 @@ namespace WebTrack.Controllers
         {
             using (var input = new StreamReader(HttpContext.Request.InputStream))
             {
-                var data = input.ReadToEnd();
+                var data = JsonConvert.DeserializeObject(input.ReadToEnd());
                 var a = 12;
             }
             return null;

@@ -25,9 +25,10 @@ Search.prototype.DoSearch = function() {
 
 
 //Custom dropdown
-function CustomDropDownItem(icon, text) {
+function CustomDropDownItem(icon, text, element) {
     this.Icon = icon;
     this.Text = text;
+    this.Element = element;
 }
 
 function CustomDropDown(width) {

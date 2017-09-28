@@ -104,12 +104,40 @@ CustomDropDown.prototype.DrawMenu = function (e) {
 
 // Login Dialog ----------------------------------------------------------------------------------------------------------------------------------------//
 
-function Login(emailaddress, password) {
+function Login() {
+    var self = this;
+    var msg = "<label class='login-label' for='emailaddress'>Email Address</label><input class='login-input' id='emailaddress' type='text'/>";
+    msg += "<label class='login-label' for='password'>Password</label><input class='login-input' id='password' type='password'/>"
+    msg += "</br><label class='login-label'></label><input style='margin:12px 0 0 0;font-size:12pt' type='checkbox'>&nbsp;&nbsp;Remember me</input>"
+    msg += "</br><label class='login-label'></label><a style='margin:16px 0 0 0' href='#'>Forgot my password</a>";
 
-    this.EmailAddress = emailaddress;
-    this.Password = password;
+    BootstrapDialog.show({
+        message: msg,
+        title: 'Login',
+        buttons:[
+            {
+                label: 'Submit',
+                cssClass: 'btn-primary',
+                action: function () {
+                    ProcessLogin();
+                }
+            },{
+                label: 'Cancel',
+                cssClass: 'btn-primary',
+                action: function(dlg){
+                    dlg.close();
+                }
+                
+            }]
+    });
 
-    var oData = { user: emailaddress, pwd: password };
+    $('#emailaddress').focus();
+
+}
+
+function ProcessLogin(){
+
+    var oData = JSON.stringify({ creds: { user: $('#emailaddress').val(), pwd: $('#password').val() } });
     var URL = location.href + 'XData/GetUserData/';
     $.ajax({
         url: URL,

@@ -9,10 +9,12 @@
         <link href="~/Content/Site.css" rel="stylesheet" />
         <link href="~/Content/bootstrap.css" rel="stylesheet" />
         <link href="~/Content/xTrack.css" rel="stylesheet" />
+        <link href="~/Content/bootstrap-dialog.css" rel="stylesheet" />
 
         <script src="~/Scripts/jquery.1.12.4.js"></script>
         <script src="~/Scripts/bootstrap.js"></script>
         <script src="~/Scripts/xTrack.js"></script>
+        <script src="~/Scripts/bootstrap-dialog.js"></script>
 
     </head>
     <body>
@@ -27,7 +29,7 @@
                 <div id="searchbox-container"><input class='searchbox' type='text' /></div>
                 <ul class="nav navbar-nav navbar-right">
                     <li><a href="#"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
-                    <li><a href="#"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+                    <li><a href="javascript:Login()"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
                 </ul>
             </div>
         </nav>
@@ -40,4 +42,12 @@
 
 <script>
 
+        $(window).on('resize', function() {
+            $('.mainpanel').css({ height: $(window).height() - 150 + 'px' });
+        });
+    });
+    
+    function DoSearch(key) {
+        var ss = new Search(key);
+    }
 </script>

@@ -41,3 +41,19 @@
     border: 1px solid red;
     border-radius: 5px;
 }
+
+/* Login ------------------------------------------------------------------------------------- */
+.login-input{
+    width:350px;
+    font-size:12pt;
+    border:1pt solid #DDDDDD;
+    border-radius:7px;
+    padding:3px 0 3px 8px;
+    margin:12px 0 0 0;
+}
+.login-label{
+    font-size:12pt;
+    margin:12px 8px 0 50px;
+    width:130px;
+    text-align:right;
+}

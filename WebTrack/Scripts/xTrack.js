@@ -7,8 +7,8 @@ var globals = {
     mdb_image_url:'http://image.tmdb.org/t/p/',
     mdb_api_url: 'https://https://api.themoviedb.org/',
     mdb_api_v3:'88ad7fdd7eabbabd46d6badf96ee7671',
-    mdb_api_v4: 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJhdWQiOiI4OGFkN2ZkZDdlYWJiYWJkNDZkNmJhZGY5NmVlNzY3MSIsInN1YiI6IjU5Nzc3NzNjOTI1MTQxM2FkZTAwODdhNCIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.IyJcR7NAUZoH4vAKeKpmWTnyxYvqOiN2rFjTh1ej7KI'
-};
+    mdb_api_v4: 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJhdWQiOiI4OGFkN2ZkZDdlYWJiYWJkNDZkNmJhZGY5NmVlNzY3MSIsInN1YiI6IjU5Nzc3NzNjOTI1MTQxM2FkZTAwODdhNCIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.IyJcR7NAUZoH4vAKeKpmWTnyxYvqOiN2rFjTh1ej7KI',
+ };
 
 function pos(top, left, width, height) {
     return { top: top, left: left, width: width, height: height };
@@ -135,9 +135,10 @@ function Login() {
 
 }
 
-function ProcessLogin(){
-
-    var oData = JSON.stringify({ creds: { user: $('#emailaddress').val(), pwd: $('#password').val() } });
+function ProcessLogin() {
+    var user = new xt_user();
+    
+    var oData = JSON.stringify({ creds: { user: $('#emailaddress').val(), pwd: sha1($('#password').val()) } });
     var URL = location.href + 'XData/GetUserData/';
     $.ajax({
         url: URL,
@@ -145,7 +146,10 @@ function ProcessLogin(){
         type: 'post',
         data: oData,
         success: function(data) {
-            var record = data;
+            Cookies.set('userdata', data, { expires: 7, path: '' });
+            $('#loginbtns').css({ display: 'none' });
+            user = JSIN.parse(data);
+            $('.loggedin-user').text('Logged In: ' + user.UserName);
         }
     });
 }

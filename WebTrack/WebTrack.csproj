@@ -134,30 +134,30 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
-    <Compile Include="ca_user.cs">
-      <DependentUpon>xtract.tt</DependentUpon>
-    </Compile>
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\XDataController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Models\DataClass.cs" />
+    <Compile Include="Models\AllData.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="xtract.Context.cs">
+    <Compile Include="xTrackt.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>xtract.Context.tt</DependentUpon>
+      <DependentUpon>xTrackt.Context.tt</DependentUpon>
     </Compile>
-    <Compile Include="xtract.cs">
+    <Compile Include="xTrackt.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>xtract.tt</DependentUpon>
+      <DependentUpon>xTrackt.tt</DependentUpon>
     </Compile>
-    <Compile Include="xtract.Designer.cs">
+    <Compile Include="xTrackt.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>xtract.edmx</DependentUpon>
+      <DependentUpon>xTrackt.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="xt_user.cs">
+      <DependentUpon>xTrackt.tt</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
@@ -239,6 +239,7 @@
     <Content Include="Scripts\bootstrap-dialog.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrapdialog.js" />
+    <Content Include="Scripts\DataModels.js" />
     <Content Include="Scripts\jquery-1.8.2.js" />
     <Content Include="Scripts\jquery-1.8.2.min.js" />
     <None Include="Scripts\jquery.validate-vsdoc.js" />
@@ -251,9 +252,11 @@
     <Content Include="Scripts\jquery.validate.min.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
+    <Content Include="Scripts\js.cookie.js" />
     <Content Include="Scripts\knockout-2.2.0.debug.js" />
     <Content Include="Scripts\knockout-2.2.0.js" />
     <Content Include="Scripts\modernizr-2.6.2.js" />
+    <Content Include="Scripts\sha1.js" />
     <Content Include="Scripts\xTrack.js" />
     <Content Include="Scripts\_references.js" />
     <Content Include="Web.config" />
@@ -268,22 +271,22 @@
     <Content Include="Views\Shared\Error.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
-    <EntityDeploy Include="xtract.edmx">
+    <EntityDeploy Include="xTrackt.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>xtract.Designer.cs</LastGenOutput>
+      <LastGenOutput>xTrackt.Designer.cs</LastGenOutput>
     </EntityDeploy>
-    <Content Include="xtract.Context.tt">
+    <Content Include="xTrackt.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>xtract.edmx</DependentUpon>
-      <LastGenOutput>xtract.Context.cs</LastGenOutput>
+      <DependentUpon>xTrackt.edmx</DependentUpon>
+      <LastGenOutput>xTrackt.Context.cs</LastGenOutput>
     </Content>
-    <Content Include="xtract.edmx.diagram">
-      <DependentUpon>xtract.edmx</DependentUpon>
+    <Content Include="xTrackt.edmx.diagram">
+      <DependentUpon>xTrackt.edmx</DependentUpon>
     </Content>
-    <Content Include="xtract.tt">
+    <Content Include="xTrackt.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>xtract.edmx</DependentUpon>
-      <LastGenOutput>xtract.cs</LastGenOutput>
+      <DependentUpon>xTrackt.edmx</DependentUpon>
+      <LastGenOutput>xTrackt.cs</LastGenOutput>
     </Content>
   </ItemGroup>
   <ItemGroup>

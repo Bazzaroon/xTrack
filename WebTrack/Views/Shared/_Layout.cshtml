@@ -15,6 +15,9 @@
         <script src="~/Scripts/bootstrap.js"></script>
         <script src="~/Scripts/xTrack.js"></script>
         <script src="~/Scripts/bootstrap-dialog.js"></script>
+        <script src="~/Scripts/sha1.js"></script>
+        <script src="~/Scripts/DataModels.js"></script>
+        <script src="~/Scripts/js.cookie.js"></script>
 
     </head>
     <body>
@@ -27,10 +30,11 @@
                     <li class="active"><a href="#">Home</a></li>
                 </ul>*@
                 <div id="searchbox-container"><input class='searchbox' type='text' /></div>
-                <ul class="nav navbar-nav navbar-right">
+                <ul id="loginbtns" class="nav navbar-nav navbar-right">
                     <li><a href="#"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
                     <li><a href="javascript:Login()"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
                 </ul>
+                <div class="loggedin-user"></div>
             </div>
         </nav>
         <div class="mainpanel"></div>

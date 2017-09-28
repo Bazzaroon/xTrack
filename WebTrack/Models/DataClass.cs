@@ -12,9 +12,9 @@ namespace WebTrack.Models
             string jsonData = string.Empty;
             using (var ctxt = new xTracktEntities())
             {
-                var data = ctxt.ca_user.Where(f => f.EmailAddress == emailaddress)
+                var data = ctxt.ca_user.Where(f => f.EmailAddress == emailaddress);
             }
-
+            return jsonData;
         }
     }
 }

@@ -3,11 +3,12 @@
 //October 2017
 
 //SEARCH OBJECT
-var globals = {
-    mdb_image_url:'http://image.tmdb.org/t/p/',
+var global = {
+    mdb_image_url: 'http://image.tmdb.org/t/p/',
     mdb_api_url: 'https://https://api.themoviedb.org/',
-    mdb_api_v3:'88ad7fdd7eabbabd46d6badf96ee7671',
+    mdb_api_v3: '88ad7fdd7eabbabd46d6badf96ee7671',
     mdb_api_v4: 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJhdWQiOiI4OGFkN2ZkZDdlYWJiYWJkNDZkNmJhZGY5NmVlNzY3MSIsInN1YiI6IjU5Nzc3NzNjOTI1MTQxM2FkZTAwODdhNCIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.IyJcR7NAUZoH4vAKeKpmWTnyxYvqOiN2rFjTh1ej7KI',
+    cookie: null
  };
 
 function pos(top, left, width, height) {
@@ -27,7 +28,7 @@ Search.prototype.DoSearch = function() {
 };
 
 
-//Custom dropdown
+//Custom dropdown-------------------------------------------------------------------------------------------------------------------------
 function CustomDropDownItem(icon, text, tooltip) {
     this.Icon = icon;
     this.Text = text;
@@ -147,15 +148,23 @@ function ProcessLogin() {
         data: oData,
         success: function(data) {
             Cookies.set('userdata', data, { expires: 7, path: '' });
-            $('#loginbtns').css({ display: 'none' });
-            user = JSIN.parse(data);
-            $('.loggedin-user').text('Logged In: ' + user.UserName);
+            SetLogin(JSON.parse(data).UserName);
         }
     });
 }
 
+function SetLogin(username) {
+    $('#loginbtns').css({ display: 'none' });
+    $('.loggedin-user').text('Logged In: ' + username);
+    $('#searchbox-container').show();
+    $('.mainpanel').css({ 'background-image': 'none' });
+}
+
 // Home page scripting ---------------------------------------------------------------------------------------------------------------------------------//
 $(document).ready(function () {
+    global.cookie = JSON.parse(Cookies.get('userdata'));
+   
+    
     $('.mainpanel').css({ height: $(window).height() - 150 + 'px' });
 
     $('.searchbox').on('keydown', function (e) {
@@ -168,16 +177,24 @@ $(document).ready(function () {
         $('.mainpanel').css({ height: $(window).height() - 150 + 'px' });
     });
 
-    var ddi1 = new CustomDropDownItem('/Images/movie-icon.png', null, 'Movies');
-    var ddi2 = new CustomDropDownItem('/Images/tv.png', null, 'Television');
-    var ddi3 = new CustomDropDownItem('/Images/moviegroup-icon.png', null, 'Movie Group');
-    var ddi4 = new CustomDropDownItem('/Images/tvgroup-icon.png', null, 'Television Group');
-    var dd = new CustomDropDown(pos(10, 5, 35, 30), 'searchbox-container', 'after', 'genre', 'Select TV or Video');
-    dd.Add(ddi1);
-    dd.Add(ddi2);
-    dd.Add(ddi3);
-    dd.Add(ddi4);
-    dd.Draw();
+
+    if (global.cookie != null) {
+
+        SetLogin(global.cookie[0].UserName);
+
+        var ddi1 = new CustomDropDownItem('/Images/movie-icon.png', null, 'Movies');
+        var ddi2 = new CustomDropDownItem('/Images/tv.png', null, 'Television');
+        var ddi3 = new CustomDropDownItem('/Images/moviegroup-icon.png', null, 'Movie Group');
+        var ddi4 = new CustomDropDownItem('/Images/tvgroup-icon.png', null, 'Television Group');
+        var dd = new CustomDropDown(pos(10, 5, 35, 30), 'searchbox-container', 'after', 'genre', 'Select TV or Video');
+        dd.Add(ddi1);
+        dd.Add(ddi2);
+        dd.Add(ddi3);
+        dd.Add(ddi4);
+        dd.Draw();
+    } else {
+        $('.mainpanel').css('background-image', 'url("/Images/x.png")');
+    }
 
 });
 
